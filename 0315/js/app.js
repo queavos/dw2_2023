@@ -46,6 +46,6 @@ function cliqueo ()
     //     e;
     //  });
     
-    //alert("CORRE!");
+    alert("CORRE!");
 }
 
