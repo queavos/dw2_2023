@@ -39,12 +39,14 @@ function cliqueo ()
     for (var i=0; i<ele.length; i++ )
     {
         console.log(ele[i]);
+        clg
         ele[i].classList.add("text-danger");
     }
 
     // ele.forEach(e => {
     //     e;
     //  });
+    clg
     
     alert("CORRE!");
 }
