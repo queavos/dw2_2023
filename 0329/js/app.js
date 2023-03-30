@@ -39,18 +39,22 @@ function dibujarTabla(){
 function addEventosClk()
     {
       var btnEditar=  document.getElementsByClassName('btedit');
-      console.log(btnEditar.length);
-    //   btnEditar.forEach((e) => {
-	// 			e.addEventListener("click", clkeditar);
-	// 		});
+     /// console.log(btnEditar.length);
         for (let i=0; i<btnEditar.length;i++)
         {
             btnEditar[i].addEventListener("click", clkeditar);
             console.log(btnEditar[i]);
         }
+        var btnuevo=document.getElementById("btnew");
+        btnew.addEventListener("click", clknuevo);
         console.log("Los eventos fueron cargados")
     }
-
+function clknuevo()
+    {
+            console.log("nuevo");
+                          document.getElementById("id").value =-1;
+						document.getElementById("nombre").value =""; 
+    }
 
 function clkeditar(e) {
 	///alert("soy carga");
@@ -66,7 +70,27 @@ function clkeditar(e) {
     });
 }
 
-function cargarForm()
+function guardar()
     {
-
+        var gid = document.getElementById("id").value;
+        var gnombre = document.getElementById("nombre").value;
+        console.log(gid+" - "+gnombre);	
+        if (gid==-1)
+        {
+        console.log("nuevo item");
+        gid=ciudades[ciudades.length-1].id+1;
+        ciudades.push({ id: gid, nombre: gnombre });
+        }
+        else
+        {
+        console.log("editar item")
+        ciudades.forEach((e) =>
+                {
+                    if (gid==e.id) 
+                     {
+                        e.nombre=gnombre;
+                     }
+                })   
+        }
     }
+  
