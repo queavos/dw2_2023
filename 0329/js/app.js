@@ -27,9 +27,46 @@ function dibujarTabla(){
 							e.id +
 							"</td><td>" +
 							e.nombre +
-							"</td> <td><button id='btedit' class='btn btn-warning '>Editar</button></td> <td><button id='btdel' class='btn btn-danger '>Borrar</button></td></tr>";
+							"</td> <td><button data-id='" +
+							e.id +
+							"'  class='btn btn-warning btedit '>Editar</button></td> <td><button   class='btn btn-danger btdel '>Borrar</button></td></tr>";
         } 
         );
      // console.log(tbody) ;  
     lista.innerHTML = thead+tbody+tfoot;
+    addEventosClk();
 }
+function addEventosClk()
+    {
+      var btnEditar=  document.getElementsByClassName('btedit');
+      console.log(btnEditar.length);
+    //   btnEditar.forEach((e) => {
+	// 			e.addEventListener("click", clkeditar);
+	// 		});
+        for (let i=0; i<btnEditar.length;i++)
+        {
+            btnEditar[i].addEventListener("click", clkeditar);
+            console.log(btnEditar[i]);
+        }
+        console.log("Los eventos fueron cargados")
+    }
+
+
+function clkeditar(e) {
+	///alert("soy carga");
+	eid=e.target.getAttribute('data-id');
+    ciudades.forEach((item ) =>{ 
+        if (item.id==eid)
+            {
+              console.log(item);
+              document.getElementById('id').value=item.id;  
+              document.getElementById("nombre").value = item.nombre;  
+            }
+
+    });
+}
+
+function cargarForm()
+    {
+
+    }
