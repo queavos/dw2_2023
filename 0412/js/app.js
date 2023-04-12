@@ -29,7 +29,9 @@ function dibujarTabla(){
 							e.nombre +
 							"</td> <td><button data-id='" +
 							e.id +
-							"'  class='btn btn-warning btedit '>Editar</button></td> <td><button   class='btn btn-danger btdel '>Borrar</button></td></tr>";
+							"'  class='btn btn-warning btedit '>Editar</button></td> <td><button  data-id='" +
+							e.id+
+							"'  class='btn btn-danger btdel '>Borrar</button></td></tr>";
         } 
         );
      // console.log(tbody) ;  
@@ -43,10 +45,21 @@ function addEventosClk()
         for (let i=0; i<btnEditar.length;i++)
         {
             btnEditar[i].addEventListener("click", clkeditar);
-            console.log(btnEditar[i]);
+           // console.log(btnEditar[i]);
         }
         var btnuevo=document.getElementById("btnew");
         btnew.addEventListener("click", clknuevo);
+        ////
+        var btnborrar = document.getElementsByClassName("btdel");
+       // btnborrar.addEventListener("click", clkborrar);
+
+        for (let i = 0; i < btnborrar.length; i++) {
+					btnborrar[i].addEventListener("click", clkborrar);
+					// console.log(btnEditar[i]);
+				}
+       
+       
+       
         console.log("Los eventos fueron cargados")
     }
 function clknuevo()
@@ -69,7 +82,21 @@ function clkeditar(e) {
 
     });
 }
-
+  function clkborrar(e) {
+		console.log("borrando...");
+        eid = e.target.getAttribute("data-id");
+        console.log(e.target.getAttribute("data-id"));
+        console.log(ciudades);
+        ciudades.forEach((item,idx) => {
+            if (item.id==eid)
+                {
+                 ciudades.splice(idx,1);   
+                }
+        }
+        );
+        console.log(ciudades);
+        dibujarTabla();
+	}
 function guardar()
     {
         var gid = document.getElementById("id").value;
@@ -94,4 +121,3 @@ function guardar()
         }
         dibujarTabla();
     }
-  

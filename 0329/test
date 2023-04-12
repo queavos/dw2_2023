@@ -1,0 +1,31 @@
+public class DivisionPorCero {
+    public static void main(String[] args) {
+        int numerador = 10;
+        int denominador = 0;
+        try {
+            int resultado = numerador / denominador; // Esto causará una ArithmeticException
+        } catch (ArithmeticException e) {
+            System.out.println("Ocurrió un error aritmético: " + e.getMessage());
+        }
+    }
+}
+
+
+public class ExcepcionAutenticacion extends Exception {
+    public ExcepcionAutenticacion(String mensaje) {
+        super(mensaje);
+    }
+}
+
+public class Aplicacion {
+    public static void main(String[] args) {
+        try {
+            // Lógica de autenticación
+            if (autenticacionIncorrecta) {
+                throw new ExcepcionAutenticacion("Autenticación fallida: usuario o contraseña incorrectos.");
+            }
+        } catch (ExcepcionAutenticacion e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}
