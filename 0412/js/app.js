@@ -1,15 +1,33 @@
-var ciudades=[];
+var datos=[];
+var ciudades = [];
 //console.log({"id":1,"nombre":"encarnacion"});
-ciudades.push({ id: 1, nombre: "encarnacion" });
-ciudades.push({ id: 2, nombre: "Hohenau" });
-ciudades.push({ id: 3, nombre: "San Cosme" });
-ciudades.push({ id: 4, nombre: "Fram" });
-ciudades.push({ id: 5, nombre: "Cambyreta" });
-console.log(ciudades);
+datos.push({ id: 1, nombre: "encarnacion" });
+datos.push({ id: 2, nombre: "Hohenau" });
+datos.push({ id: 3, nombre: "San Cosme" });
+datos.push({ id: 4, nombre: "Fram" });
+datos.push({ id: 5, nombre: "Cambyreta" });
+console.log(datos);
 
 function cargar(){
     ///alert("soy carga");
-   dibujarTabla(); 
+  // 
+   //console.log(ciudades);
+  //console.log(JSON.stringify(ciudades));
+ // localStorage.setItem("data", "");
+  var data = localStorage.getItem("data");
+  if (!data || data=="")
+        {
+            console.log("entro a la condicion");
+            let aux=JSON.stringify(datos);
+            ciudades=JSON.parse(aux);
+        } else {
+            ciudades = JSON.parse(data);
+        }
+
+  // localStorage.setItem("ciudad", JSON.stringify(ciudades));
+   //var pueblos=JSON.parse(localStorage.getItem('ciudad'));
+   //console.log(pueblos);
+   dibujarTabla();  
 }
 function dibujarTabla(){
     console.log("dibujando");
@@ -65,8 +83,8 @@ function addEventosClk()
 function clknuevo()
     {
             console.log("nuevo");
-                          document.getElementById("id").value =-1;
-						document.getElementById("nombre").value =""; 
+            document.getElementById("id").value =-1;
+			document.getElementById("nombre").value =""; 
     }
 
 function clkeditar(e) {
@@ -85,7 +103,7 @@ function clkeditar(e) {
   function clkborrar(e) {
 		console.log("borrando...");
         eid = e.target.getAttribute("data-id");
-        console.log(e.target.getAttribute("data-id"));
+        //console.log(e.target.getAttribute("data-id"));
         console.log(ciudades);
         ciudades.forEach((item,idx) => {
             if (item.id==eid)
@@ -95,6 +113,7 @@ function clkeditar(e) {
         }
         );
         console.log(ciudades);
+        persistir();
         dibujarTabla();
 	}
 function guardar()
@@ -119,5 +138,10 @@ function guardar()
                      }
                 })   
         }
+        persistir();
         dibujarTabla();
     }
+ function persistir()
+  {
+    localStorage.setItem("data",JSON.stringify(ciudades));
+  }  
