@@ -1,5 +1,6 @@
 var datos=[];
 var ciudades = [];
+
 //console.log({"id":1,"nombre":"encarnacion"});
 datos.push({ id: 1, nombre: "encarnacion" });
 datos.push({ id: 2, nombre: "Hohenau" });
@@ -145,3 +146,4 @@ function guardar()
   {
     localStorage.setItem("data",JSON.stringify(ciudades));
   }  
+window.addEventListener("load", cargar);
