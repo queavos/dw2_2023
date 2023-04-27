@@ -1,24 +1,21 @@
-function mostrarTabla(idTabla, datos, clave, atributos) {
-	console.log(idTabla);
+function mostrarTabla(idTabla, datos, clave, columnas) {
 	let tabla = document.getElementById(idTabla);
-	console.log(tabla);
 	tabla.innerHTML = "";
-	console.log("---");
-     
+
 	let thead = tabla.createTHead();
 	let filaTitulo = thead.insertRow();
 	let celdaTitulo = filaTitulo.insertCell();
 	celdaTitulo.colSpan = 2;
 	let linkNuevo = document.createElement("a");
 	linkNuevo.textContent = "Nuevo";
-	linkNuevo.className = "btnNew";
+	linkNuevo.className = "btn btn-primary btnNew";
 	linkNuevo.href = "#";
 	celdaTitulo.appendChild(linkNuevo);
-	console.log(thead);
+
 	let filaEncabezado = thead.insertRow();
-	for (let i = 0; i < atributos.length; i++) {
+	for (let i = 0; i < columnas.length; i++) {
 		let celdaEncabezado = filaEncabezado.insertCell();
-		celdaEncabezado.textContent = atributos[i];
+		celdaEncabezado.textContent = columnas[i].texto;
 	}
 	filaEncabezado.insertCell().textContent = "Editar";
 	filaEncabezado.insertCell().textContent = "Borrar";
@@ -26,15 +23,16 @@ function mostrarTabla(idTabla, datos, clave, atributos) {
 	let tbody = tabla.createTBody();
 	for (let i = 0; i < datos.length; i++) {
 		let filaDatos = tbody.insertRow();
-		for (let j = 0; j < atributos.length; j++) {
+		for (let j = 0; j < columnas.length; j++) {
 			let celdaDatos = filaDatos.insertCell();
-			celdaDatos.textContent = datos[i][atributos[j]];
+			celdaDatos.textContent = datos[i][columnas[j].atributo];
 		}
 
 		let celdaEditar = filaDatos.insertCell();
 		let linkEditar = document.createElement("a");
 		linkEditar.textContent = "Editar";
 		linkEditar.href = "#";
+		linkEditar.className = "btn btn-warning btnedit";
 		linkEditar.dataset.id = datos[i][clave];
 		celdaEditar.appendChild(linkEditar);
 
@@ -42,17 +40,21 @@ function mostrarTabla(idTabla, datos, clave, atributos) {
 		let linkBorrar = document.createElement("a");
 		linkBorrar.textContent = "Borrar";
 		linkBorrar.href = "#";
+		linkBorrar.className = "btn btn-danger btndel";
 		linkBorrar.dataset.id = datos[i][clave];
 		celdaBorrar.appendChild(linkBorrar);
 	}
 }
-var datos = [];
 
-//console.log({"id":1,"nombre":"encarnacion"});
-datos.push({ id: 1, nombre: "encarnacion" });
-datos.push({ id: 2, nombre: "Hohenau" });
-datos.push({ id: 3, nombre: "San Cosme" });
-datos.push({ id: 4, nombre: "Fram" });
-datos.push({ id: 5, nombre: "Cambyreta" });
-//console.log(datos);
-mostrarTabla("tabla", datos, "id", ["id","nombre"]);
+const productos = [
+	{ nombre: "Producto 1", descripcion: "Descripción 1", precio: 10 },
+	{ nombre: "Producto 2", descripcion: "Descripción 2", precio: 20 },
+	{ nombre: "Producto 3", descripcion: "Descripción 3", precio: 30 },
+];
+
+const columnas = [
+	{ atributo: "nombre", texto: "Nombre" },
+	{ atributo: "precio", texto: "Precio" },
+];
+
+mostrarTabla("tablaProductos", productos, "nombre", columnas);
