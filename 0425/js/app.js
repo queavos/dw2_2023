@@ -15,7 +15,7 @@ function cargar(){
    //console.log(ciudades);
   //console.log(JSON.stringify(ciudades));
  // localStorage.setItem("data", "");
-  var data = localStorage.getItem("data");
+  var data = localStorage.getItem("ciudades");
   if (!data || data=="")
         {
             console.log("entro a la condicion");
@@ -144,6 +144,6 @@ function guardar()
     }
  function persistir()
   {
-    localStorage.setItem("data",JSON.stringify(ciudades));
+    localStorage.setItem("ciudades",JSON.stringify(ciudades));
   }  
 window.addEventListener("load", cargar);
