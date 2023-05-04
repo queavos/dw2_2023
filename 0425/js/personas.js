@@ -135,6 +135,7 @@ function pguardar() {
 				e.cin = gcin;
 				e.fecha_nac = gfecha_nac;
 				e.ciudad_id = gciudad_id;
+				e.direccion = gdireccion;
 			}
 		});
 	}
