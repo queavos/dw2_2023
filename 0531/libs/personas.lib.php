@@ -37,4 +37,43 @@ function borrarPersona($id,$con)
   // $filas=[];
     return $filas;
 }
+function validarPersonas($dato)
+  {
+    $errores=[];
+    /* 
+           $dato['id']=-1;
+        $dato['nombre']="";
+        $dato['apellido']="";
+        $dato['cin']="";
+        $dato['direccion']="";
+        $dato['fecha_nac']="";
+        $dato['ciudad_id']="";
+    */
+    if (empty($dato['id'])) 
+      {
+        array_push($errores, "El campo id debe estar definido");
+      }
+      if (empty($dato['apellido'])) 
+      {
+        array_push($errores, "El campo apellido debe estar definido");
+      }
+          if (empty($dato['nombre'])) 
+      {
+        array_push($errores, "El campo nombre debe estar definido");
+      }
+       if (is_nan($dato['cin'])) 
+      {
+        array_push($errores, "El campo Nro de Cedula debe ser un numero");
+      }
+      if (!preg_match('/^\d{4}-\d{2}-\d{2}$/', $dato['fecha_nac']))
+       {
+       array_push($errores,"La fecha ingresada no tiene el formato correcto (YYYY-MM-DD)");
+      }
+      if (is_nan($dato['ciudad_id'])) 
+      {
+        array_push($errores, "El campo Ciudad debe ser un numero");
+      }
+      return  $errores;
+}
+
 ?>

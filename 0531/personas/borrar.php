@@ -9,5 +9,5 @@ if ($_GET and $_GET['id'])
         //$dato=$rs->fetch_assoc();
        // echo "</pre>";
     }
-  header('Location:index.php?mod=lstpersona');   
+  header('Location:index.php?mod=persona&accion=lst');   
     ?>

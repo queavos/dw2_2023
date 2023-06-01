@@ -2,7 +2,7 @@
 // include("../libs/conex.php");
 // include("../libs/ciudades.lib.php");
 $titulo="Insertar Persona";
-if ($_GET and $_GET['id'])
+if ($_GET and isset($_GET['id']))
     {
        // echo $_GET['id'];
         $titulo="Editar Persona";
@@ -61,13 +61,15 @@ if ($_GET and $_GET['id'])
           // if (isset($dato['nombre'])) { echo $dato['nombre']; }
            echo $dato['fecha_nac'];
             ?>" /> <br><label>Ciudad</label><br>
-           <input type="text" id="ciudad_id" name="ciudad_id" required value="<?php 
-          // if (isset($dato['nombre'])) { echo $dato['nombre']; }
-           echo $dato['ciudad_id'];
-            ?>" /> 
-            <select name="ciudad" id="ciudad">
+            <select name="ciudad_id" id="ciudad_id">
                    <option value="0" >Seleccionar </option>
-                
+                    <?php
+                     foreach($cdatos as $c) { ?>
+
+                     <option value="<?php echo $c["id"]; ?>" <?php if ($c["id"]==$dato['ciudad_id']) { echo "selected"; } ?> ><?php echo $c["nombre"]; ?> </option>
+
+             
+                   <?php  } ?>
 
             </select>
             <br>

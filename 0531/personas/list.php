@@ -3,7 +3,7 @@ $datos=traerPersonas($conn);
 ?>    
     
     <h1>Personas</h1>
-    <a href="form.php">Nuevo</a>
+    <a href="index.php?mod=persona&accion=nuevo">Nuevo</a>
     <table border=1>
         <thead>
             <tr>
@@ -31,8 +31,8 @@ $datos=traerPersonas($conn);
                 <td><?php echo $d['fecha_nac'];  ?> </td>
                 <td><?php echo $d['direccion'];  ?></td>
                 <td><?php echo traerCiudadNombre($d['ciudad_id'],$conn);  ?> </td>
-                <td><a href="index.php?mod=edtpersona&&id=<?php  echo $d['id'];  ?>">Editar</a> </td>
-                <td><a href="index.php?mod=delpersona&&id=<?php  echo $d['id'];  ?>">Borrar</a> </td>
+                <td><a href="index.php?mod=persona&accion=edit&id=<?php  echo $d['id'];  ?>">Editar</a> </td>
+                <td><a href="index.php?mod=persona&accion=borrar&id=<?php  echo $d['id'];  ?>">Borrar</a> </td>
             </tr>
                <?php 
                }

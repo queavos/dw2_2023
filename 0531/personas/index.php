@@ -8,7 +8,9 @@
 // {
 //  print_r($d);
 // }
-if (!$_GET["mod"] or !isset($_GET["mod"])) { $_GET["mod"]="lstpersona";   }?>
+if (!$_GET["mod"] or !isset($_GET["mod"])) { 
+    $_GET["mod"]="persona";
+    $_GET["mod"]="lst";   }?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -19,15 +21,18 @@ if (!$_GET["mod"] or !isset($_GET["mod"])) { $_GET["mod"]="lstpersona";   }?>
 </head>
 <body>
 <?php
-if ( $_GET["mod"]=="lstpersona" )
+if ( $_GET["mod"]=="persona" & $_GET["accion"]=="lst"  )
         {
             include("list.php");
-        } elseif ($_GET["mod"]=="edtpersona")
+        } elseif ($_GET["mod"]=="persona" and ($_GET["accion"]=="nuevo" or $_GET["accion"]=="edit") )
         {
               include("form.php");  
-        } elseif ($_GET["mod"]=="delpersona")
+        } elseif ($_GET["mod"]=="persona" & $_GET["accion"]=="borrar" )
         {
               include("borrar.php");    
+        } else 
+        {
+           include("list.php"); 
         }
 
 ?>
