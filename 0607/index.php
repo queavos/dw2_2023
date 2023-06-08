@@ -1,5 +1,6 @@
 <?php
 include("comun/includes.php");
+include("comun/acceso.php");
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -30,18 +31,18 @@ include("comun/includes.php");
                 if ($_GET['mod']=="ciudades" && ($_GET['accion']=="editar" || $_GET['accion']=="nuevo" ))  {
                     include("ciudades/nuevo.php");
                 }
-                if ($_GET['mod']=="ciudades" && ($_GET['accion']=="borrar"))  {
-                    include("ciudades/borrar.php");
-                }
+                // if ($_GET['mod']=="ciudades" && ($_GET['accion']=="borrar"))  {
+                //     include("ciudades/borrar.php");
+                // }
                 if ($_GET['mod']=="personas")  {
                     include("personas/list.php");
                 }
                 if ($_GET['mod']=="personas" && ($_GET['accion']=="editar" || $_GET['accion']=="nuevo" ))  {
                     include("personas/form.php");
                 }
-                if ($_GET['mod']=="personas" && ($_GET['accion']=="borrar"))  {
-                    include("ciudades/borrar.php");
-                }
+                // if ($_GET['mod']=="personas" && ($_GET['accion']=="borrar"))  {
+                //     include("ciudades/borrar.php");
+                // }
                 ?>
             </div>
         </div>

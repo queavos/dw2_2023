@@ -2,11 +2,7 @@
 // include("libs/conex.php");
 // include("libs/ciudades.lib.php");
 $datos=traerCiudades($conn);
-//echo "<pre>";
-// foreach($datos as $d)
-// {
-//  print_r($d);
-// }
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -19,7 +15,7 @@ $datos=traerCiudades($conn);
 <body>
     <h1>Ciudades</h1>
     <a href="index.php?mod=ciudades&accion=nuevo">Nuevo</a>
-    <table border=1>
+    <table class="table">
         <thead>
             <tr>
                 <th>Id</th>

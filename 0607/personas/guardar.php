@@ -16,7 +16,7 @@
         header('Location:../index.php?mod=personas');
         } else 
         {
-        echo "NO PASO";
+        //echo "NO PASO";
         $datos=json_encode($_POST); 
         header('Location:../index.php?mod=personas&accion=editar&errores='. json_encode($err).'&odata='.$datos);    
         }

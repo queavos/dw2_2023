@@ -4,7 +4,7 @@ $datos=traerPersonas($conn);
     
     <h1>Personas</h1>
     <a href="index.php?mod=personas&accion=nuevo">Nuevo</a>
-    <table border=1>
+    <table class="table">
         <thead>
             <tr>
                 <th>Id</th>

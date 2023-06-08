@@ -10,7 +10,7 @@
     <a href="index.php?mod=personas" class="btn">Personas</a>
 </li>
 <li>
-    <a href="#" class="btn">Salir</a>
+    <a href="acceso/logout.php" class="btn">Salir</a>
 </li>
 </ul>
 </div>
