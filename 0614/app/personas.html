@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			http-equiv="X-UA-Compatible"
+			content="IE=edge"
+		/>
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Personas</title>
+		<script src="js/personas.js"></script>
+		<script src="js/ciudades.data.js"></script>
+        <script src="js/personas.data.js"></script>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp"
+			crossorigin="anonymous"
+		/>
+	</head>
+	<body>
+        <ul><li><a href="personas.html">Personas</a></li><li><a href="index.html">ciudades</a></li></ul>
+		<div class="container">
+			<div class="row">
+				<div id="lista">
+					<h3>lista</h3>
+					<table id="tabtest"></table>
+				</div>
+			</div>
+			<div class="row">
+				<div id="formu">
+					<h3>Formu</h3>
+					<form>
+						<input
+							type="text"
+							placeholder="id"
+							id="id"
+							name="id"
+						/>
+						<input
+							class="form-control"
+							type="text"
+							placeholder="Apellido"
+							name="apellido"
+							id="apellido"
+						/>
+						<input
+							class="form-control"
+							type="text"
+							placeholder="Nombre"
+							name="nombre"
+							id="nombre"
+						/>
+						<input
+							class="form-control"
+							type="text"
+							placeholder="Nro de Cedula"
+							name="cin"
+							id="cin"
+						/>
+						<input
+							type="date"
+							name="fecha_nac"
+							id="fecha_nac"
+							class="form-control"
+						/>
+						<select
+							name="ciudad_id"
+							id="ciudad_id"
+							class="form-control"
+						>
+							<option>Elegir</option>
+						</select>
+						<textarea
+							class="form-control"
+							name="direccion"
+							id="direccion"
+							cols="30"
+							rows="4"
+						></textarea>
+					</form>
+					<button onclick="pcargar()">Cargar</button>
+					<button
+						onclick="pguardar()"
+						class="btn btn-success"
+					>
+						Guardar
+					</button>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
